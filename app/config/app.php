@@ -181,4 +181,22 @@ return array(
 
 	),
 
+    'laragento' => array(
+
+        'magento' => array(
+            'api' => array(
+                'user' => '',
+                'key' => '',
+            ),
+        ),
+
+        'defaults' => array(
+            'pagination' => array(
+                'limit' => 10,
+                'offset' => 0,
+            ),
+        ),
+
+    ),
+
 );
