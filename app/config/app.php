@@ -197,6 +197,12 @@ return array(
             ),
         ),
 
+        'cache' => array(
+            'product' => array(
+                'seconds' => 120
+            ),
+        ),
+
     ),
 
 );
