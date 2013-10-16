@@ -47,7 +47,7 @@ class Attributes{
 
 
     /**
-     * Load all EAV attributes
+     * Load all EAV attributes into redis cache
      *
      * @param $typeCode
      * @return bool
@@ -77,7 +77,6 @@ class Attributes{
         return true;
     }
 
-
     /**
      * Load a specific attribute code
      *
@@ -89,6 +88,7 @@ class Attributes{
     {
         $attribute = Redis::hgetall('eavAttribute:'.$attributeCode);
 
+        //If the attribute isn't in redis' cache then we need to try to load it
         if(!$attribute)
         {
             $this->loadEavAttributes($attributeTypeCode);

@@ -93,6 +93,7 @@ class ProductController extends \BaseController {
             {
                 foreach($fields as $attribute)
                 {
+                    $attribute = $this->toCamelCase($attribute);
                     if(!array_key_exists($attribute, $product)){
                         $queryRequired = true;
                         break;
@@ -100,13 +101,16 @@ class ProductController extends \BaseController {
                 }
             }
         }
-        
+
+        //If we have determined that we actually need to make a query to the mysql database..
         if($queryRequired)
         {
             $productQuery = Product::where('catalog_product_entity.entity_id', '=', $id);
 
+            //note that we are normalizing all primary keys to 'id' - we might regret this later
             $select = array('catalog_product_entity.entity_id as id', 'sku');
 
+            //Check if any ?fields= came in on the query string (or anywhere else) and process those if so
             if(Input::has('fields')){
 
                 $fields = array_map('trim',explode(',', Input::get('fields')));
@@ -140,7 +144,7 @@ class ProductController extends \BaseController {
 
                     $productQuery->leftJoin('catalog_product_entity_' . $attribute['backend_type'] . ' as ' . $attributeCode, 'catalog_product_entity.entity_id', '=', $attributeCode . '.entity_id');
                     $productQuery->where($attributeCode . '.attribute_id', '=', $attribute['id']);
-                    $select[] = $attributeCode . '.value as ' . $attributeCode;
+                    $select[] = $attributeCode . '.value as ' . $this->toCamelCase($attributeCode);
 
                 }
 
@@ -215,7 +219,8 @@ class ProductController extends \BaseController {
             $fields = array_map('trim',explode(',', Input::get('fields')));
             foreach($fields as $attributeCode)
             {
-                $returnProduct[$attributeCode] = $product->$attributeCode;
+                $attributeCode = $this->toCamelCase($attributeCode);
+                $returnProduct[$this->toCamelCase($attributeCode)] = $product->$attributeCode;
             }
         }
 
@@ -224,7 +229,7 @@ class ProductController extends \BaseController {
         {
             foreach($returnProduct as $key => $value)
             {
-                $cacheData[] = $key;
+                $cacheData[] = $this->toCamelCase($key);
                 $cacheData[] = $value;
             }
 
@@ -246,6 +251,12 @@ class ProductController extends \BaseController {
             $match = $match == strtoupper($match) ? strtolower($match) : lcfirst($match);
         }
         return implode('_', $ret);
+    }
+
+    private function toCamelCase($val) {
+        $val = str_replace(' ', '', ucwords(str_replace('_', ' ', $val)));
+        $val = strtolower(substr($val,0,1)).substr($val,1);
+        return $val;
     }
 
 }
