@@ -30,4 +30,29 @@ class CustomerAddressController extends EavConroller{
 
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
+
+        //Get the standard EAV results
+        $result = parent::prepareShow($id);
+
+        if(Input::has('with') && Input::get('with') == "customer"){
+            $address = Laragento\CustomerAddress::find($id);
+            $customer = $address->customer;
+
+            $customerOutput = $customer->prepareOutput($this->apiVersion);
+
+            $result['customer'] = $customerOutput;
+        }
+
+        return $result;
+
+    }
+
 }

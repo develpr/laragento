@@ -169,6 +169,13 @@ class EavConroller extends \BaseController {
         //
     }
 
+    protected function prepareShow($id)
+    {
+        $resource = $this->getResource($id);
+
+        return $resource;
+    }
+
     /**
      * Display the specified resource.
      *
@@ -177,7 +184,7 @@ class EavConroller extends \BaseController {
      */
     public function show($id)
     {
-        $resource = $this->getResource($id);
+        $resource = $this->prepareShow($id);
 
         return Response::json($resource);
     }
