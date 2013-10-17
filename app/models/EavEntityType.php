@@ -1,5 +1,8 @@
 <?php
 
+namespace Laragento;
+use \Eloquent;
+
 /**
  * Class EavEntityType
  * @property-read string $entity_type_id

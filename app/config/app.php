@@ -201,6 +201,9 @@ return array(
             'product' => array(
                 'seconds' => 120
             ),
+            'customer' => array(
+                'seconds' => 240
+            ),
         ),
 
     ),

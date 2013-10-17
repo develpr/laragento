@@ -17,6 +17,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/controllers',
 	app_path().'/models',
 	app_path().'/database/seeds',
+    app_path().'/library',
 
 ));
 
@@ -51,6 +52,17 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+});
+
+App::error(function(\Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
+{
+    // Handle the exception...
+    $response = RestResponse::notFound(
+        "This resource was not found",
+        "You can query with wildcards (slower performance) using * characters, resulting in a \"LIKE\" query.",
+        'https://github.com/develpr/laragento'
+    );
+    return Response::json($response,404);
 });
 
 /*

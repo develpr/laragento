@@ -3,11 +3,9 @@
 namespace Laragento;
 use \Eloquent;
 
-class Category extends Eloquent {
+class Customer extends Eloquent {
 
-    protected $table = 'catalog_category_entity';
+    protected $table = 'customer_entity';
     protected $primaryKey = 'entity_id';
-
-
 
 }

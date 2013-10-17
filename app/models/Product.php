@@ -1,5 +1,8 @@
 <?php
 
+namespace Laragento;
+use \Eloquent;
+
 class Product extends Eloquent {
 
     protected $table = 'catalog_product_entity';

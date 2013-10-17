@@ -1,5 +1,8 @@
 <?php
 
+namespace Laragento;
+use \Eloquent;
+
 class EavAttribute extends Eloquent {
 
     protected $table = 'eav_attribute';

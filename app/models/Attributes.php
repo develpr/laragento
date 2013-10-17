@@ -1,5 +1,8 @@
 <?php
 
+namespace Laragento;
+use \Redis;
+
 class Attributes{
 
     /**
