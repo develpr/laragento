@@ -20,3 +20,4 @@ Route::resource('api/v1/products', 'Api\V1\ProductController');
 Route::resource('api/v1/categories', 'Api\V1\CategoryController');
 Route::resource('api/v1/customers', 'Api\V1\CustomerController');
 Route::resource('api/v1/customerAddresses', 'Api\V1\CustomerAddressController');
+Route::resource('api/v1/configurations', 'Api\V1\CoreConfigController');

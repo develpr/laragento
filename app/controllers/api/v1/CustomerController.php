@@ -18,6 +18,7 @@ class CustomerController extends EavConroller{
     public function __construct(){
         $this->apiVersion = 'v1';
         $this->specialFields = array('id', 'email');
+        $this->defaultFields = array('firstname', 'lastname');
         $this->entityType = Laragento\EavEntityType::TYPE_CUSTOMER;
         $this->resourceName = 'customer';
         $this->routeName = 'customers';

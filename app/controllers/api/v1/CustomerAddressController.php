@@ -20,6 +20,7 @@ class CustomerAddressController extends EavConroller{
         $this->apiVersion = 'v1';
         $this->specialFields = array('id');
         $this->entityType = Laragento\EavEntityType::TYPE_CUSTOMER_ADDRESS;
+        $this->defaultFields = array('firstname', 'lastname', 'street', 'city', 'postcode');
         $this->resourceName = 'customer_address';
         $this->routeName = 'customerAddresses';
         $this->primaryTable = 'customer_address_entity'; //todo: can probably use the Model's table instead

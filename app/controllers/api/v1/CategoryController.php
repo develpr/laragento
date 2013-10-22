@@ -10,7 +10,7 @@ class CategoryController extends EavConroller {
 
     public function __construct(){
         $this->apiVersion = 'v1';
-        $this->specialFields = array('id');
+        $this->specialFields = array('id', 'path');
         $this->entityType = Laragento\EavEntityType::TYPE_CATEGORY;
         $this->resourceName = 'category';
         $this->routeName = 'categories';
@@ -19,6 +19,7 @@ class CategoryController extends EavConroller {
         $this->baseModel = new Laragento\Category();
 
         parent::__construct();
+
     }
 
 }

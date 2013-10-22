@@ -19,6 +19,7 @@ class EavConroller extends \BaseController {
     protected $fields = false;
     protected $queries = false;
     protected $specialFields;
+    protected $defaultFields = false;
     protected $entityType;
     protected $resourceName;
     protected $routeName;
@@ -40,6 +41,9 @@ class EavConroller extends \BaseController {
 
         if(Input::has('fields'))
             $this->fields = array_map('trim',explode(',', Input::get('fields')));
+
+        if($this->fields === false && $this->defaultFields !== false)
+            $this->fields = $this->defaultFields;
 
         if($this->fields !== false){
             foreach($this->specialFields as $specialField){
@@ -123,6 +127,7 @@ class EavConroller extends \BaseController {
                 $eavTypeId = $this->attributeHelper->getEavEntityTypeId($this->entityType);
                 $attribute = $this->attributeHelper->getEavAttribute($attributeCode, $eavTypeId);
 
+                //If the attribute wasn't found
                 if(!$attribute)
                     throw new \Symfony\Component\Translation\Exception\InvalidResourceException($attributeCode . ' does not exist for this ' . $this->getResourceName());
 
@@ -376,6 +381,7 @@ class EavConroller extends \BaseController {
         unset($queries['fields']);
         unset($queries['limit']);
         unset($queries['offset']);
+        unset($queries['with']);
 
         $queryParameters = array_keys($queries);
 
