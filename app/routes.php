@@ -13,7 +13,56 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+//
+//    if(array_key_exists('frontend', $_COOKIE))
+//        $session = $_COOKIE['frontend'];
+//    else
+//        return View::make('hello');
+//
+//    $session = Laragento\Session::find($session)->session_data;
+//
+//    if(array_key_exists('customer_id', $session['visitor_data']))
+//        $quote = Laragento\Quote::customer($session['visitor_data']['customer_id'])->first();
+//    else if(array_key_exists('quote_id', $session['visitor_data']))
+//        $quote = Laragento\Quote::findOrFail($session['visitor_data']['quote_id']);
+//    else
+//        return View::make('hello');
+//
+//    $quoteItems = $quote->quoteItems;
+//    $product = Laragento\Product::find(18);
+//
+//    $newQuoteItem = new Laragento\QuoteItem;
+//    $price = '19.99';
+//    $newQuoteItem->product_id = $product->entity_id;
+//    $newQuoteItem->store_id = 1;
+//    $newQuoteItem->sku = $product->sku;
+//    $newQuoteItem->is_virtual = false;
+//    $newQuoteItem->name = "Great Price";
+//    $newQuoteItem->price = $price;
+//    $newQuoteItem->base_price = $price;
+//    $newQuoteItem->row_total = $price;
+//    $newQuoteItem->base_row_total = $price;
+//    $newQuoteItem->price_incl_tax = $price;
+//    $newQuoteItem->row_total_incl_tax = $price;
+//    $newQuoteItem->row_weight = 5;
+//    $newQuoteItem->qty = 1;
+//    $newQuoteItem->product_type = $product->type_id;
+//
+//    $quote->quoteItems()->save($newQuoteItem);
+//
+//
+////
+////    $newQuoteItem->
+////
+//
+//    foreach($quoteItems as $quoteItem){
+//        /** @var Laragento\QuoteItem $quoteItem */
+//        echo $quoteItem->name;
+//        echo "<br />";
+//    }
+
+    return View::make('hello');
+
 });
 
 Route::resource('api/v1/products', 'Api\V1\ProductController');
