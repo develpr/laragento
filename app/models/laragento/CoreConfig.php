@@ -10,14 +10,13 @@ use \Redis;
  * @property-read string $entity_type_id
  * @property-read string $entity_type_code
  */
-class CoreConfig extends Eloquent {
+class CoreConfig extends Eloquent implements MagentoResource{
 
     protected $table = 'core_config_data';
     protected $primaryKey = 'config_id';
 
     protected $resourceName = 'customer';
     protected $routeName = 'configurations';
-
 
     public function prepareOutput($apiVersion)
     {
@@ -30,16 +29,6 @@ class CoreConfig extends Eloquent {
         );
 
         return $return;
-    }
-
-    public static function get($search, $scope = 0)
-    {
-        $result = Redis::get('config:' . $scope . ':' . trim($search));
-
-        if(!$result){
-
-        }
-
     }
 
 }

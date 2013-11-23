@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => '',
-			'username'  => '',
-			'password'  => '',
+			'database'  => 'vanilla',
+			'username'  => 'root',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -114,9 +114,9 @@ return array(
 		'cluster' => true,
 
 		'default' => array(
-			'host'     => '127.0.0.1',
+			'host'     => '192.168.90.228',
 			'port'     => 6379,
-			'database' => 0,
+			'database' => 12,
 		),
 
 	),

@@ -6,6 +6,10 @@
 	"require": {
 		"laravel/framework": "4.0.*"
 	},
+    "require-dev":{
+        "way/laravel-test-helpers": "dev-master",
+        "mockery/mockery": "dev-master"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",

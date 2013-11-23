@@ -49,6 +49,12 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
+App::singleton('cart', function()
+{
+    return new \Laragento\Cart;
+});
+
+
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);

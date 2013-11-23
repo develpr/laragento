@@ -6,7 +6,7 @@ use \Eloquent;
 class QuoteItem extends Eloquent {
 
     protected $table = 'sales_flat_quote_item';
-    protected $primaryKey = 'entity_id';
+    protected $primaryKey = 'item_id';
 
     public function quote()
     {
