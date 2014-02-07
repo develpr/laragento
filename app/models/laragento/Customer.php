@@ -1,10 +1,8 @@
 <?php
 
 namespace Laragento;
-use \Eloquent;
-use \URL;
 
-class Customer extends Eloquent {
+class Customer extends MagentoResource {
 
     protected $table = 'customer_entity';
     protected $primaryKey = 'entity_id';
@@ -15,6 +13,10 @@ class Customer extends Eloquent {
     protected $routeName = 'customers';
     protected $attributeTablePrefix = 'customer_entity_';
 
+	public static function uri($apiVersion, $id)
+	{
+		return self::resourceUri('customers', $apiVersion, $id);
+	}
 
     public function addresses()
     {
