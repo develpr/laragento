@@ -73,6 +73,8 @@ class OrderController extends \BaseController {
 
 		if(Input::has('with') && Input::get('with') == 'orderItems'){
 			$orderItems = $order->orderItems;
+            $orderPayments = $order->orderPayments;
+            $customer = $order->customer;
 		}
 
 		$test = "HI";

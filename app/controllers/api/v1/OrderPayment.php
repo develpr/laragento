@@ -7,7 +7,7 @@ use \Input;
 use \Config;
 use \Response;
 
-class OrderController extends \BaseController {
+class OrderPaymentController extends \BaseController {
 
 	protected $apiVersion = 'v1';
 	/**
