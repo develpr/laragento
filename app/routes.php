@@ -65,6 +65,16 @@ Route::get('/', function()
 
 });
 
+Route::post('queue/push', function(){
+   return Queue::marshall();
+});
+
+Route::post('createOrder', function(){
+    Queue::push('MagentoCreateOrder', array('quoteId' => Input::get('quoteId')));
+    return array('success' => true);
+});
+
+
 
 
 Route::resource('api/v1/products', 'Api\V1\ProductController');

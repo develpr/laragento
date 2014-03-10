@@ -56,9 +56,8 @@ class OrderItemController extends \BaseController {
 	 */
 	public function store()
 	{
-        $hi = "HI";
-        $x = null;
-        return array('hi' => 'bye');
+        Queue::push('MagentoAddItem', array('productId' => Input::get('productId'), 'quoteId' => Input::get('quoteId')));
+        return array('success' => true);
 	}
 
 	/**
