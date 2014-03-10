@@ -56,7 +56,9 @@ class OrderItemController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $hi = "HI";
+        $x = null;
+        return array('hi' => 'bye');
 	}
 
 	/**
@@ -68,9 +70,8 @@ class OrderItemController extends \BaseController {
 	public function show($id)
 	{
 
-		$order = new Laragento\Order($id);
-
-		return($order->prepareOutput($this->apiVersion));
+        return array(true);
+		//return($order->prepareOutput($this->apiVersion));
 	}
 
 	/**
