@@ -8,6 +8,7 @@ use \Input;
 use \Config;
 use \Response;
 use Guzzle\Http\Client;
+use \Queue;
 
 class OrderController extends \BaseController {
 

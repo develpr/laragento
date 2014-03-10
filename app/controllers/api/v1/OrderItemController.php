@@ -6,6 +6,7 @@ use Laragento;
 use \Input;
 use \Config;
 use \Response;
+use \Queue;
 
 class OrderItemController extends \BaseController {
 

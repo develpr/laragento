@@ -66,7 +66,7 @@ Route::get('/', function()
 });
 
 Route::post('queue/push', function(){
-   return Queue::marshall();
+   return Queue::marshal();
 });
 
 Route::post('createOrder', function(){
