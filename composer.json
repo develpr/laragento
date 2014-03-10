@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.0.*",
-        "guzzle/http": "3.7.*@dev"
+        "guzzle/http": "3.7.*@dev",
+        "iron-io/iron_mq": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
