@@ -59,7 +59,7 @@ class OrderController extends \BaseController {
 	public function store()
 	{
         // Create a client to work with the Twitter API
-        $client = new Client('http://magentopos.com');
+        $client = new Client('http://magentopos.infielddesign.com');
 
         $request = $client->post('api/rest/restnow/quotes');
         $data = json_encode(array('store_id' => 1));
