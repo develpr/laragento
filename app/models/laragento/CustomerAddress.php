@@ -1,7 +1,7 @@
-<?php
+<?php namespace Laragento;
 
 
-namespace Laragento;
+use \Url;
 
 class CustomerAddress extends MagentoResource {
     
