@@ -23,6 +23,11 @@ class Customer extends MagentoResource {
         return $this->hasMany('Laragento\CustomerAddress', 'parent_id');
     }
 
+    public function wineClubs()
+    {
+        return $this->belongsToMany('Laragento\WineClub', 'wineclub_member', 'club_id', 'customer_id');
+    }
+
 
     public function prepareOutput($apiVersion)
     {

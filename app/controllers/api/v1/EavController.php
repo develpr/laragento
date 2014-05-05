@@ -11,7 +11,7 @@ use \Redis;
 use \URL;
 use \Config;
 use \Symfony\Component\Translation\Exception\InvalidResourceException;
-
+//todo: fix spelling error! Thanks @waltywalt
 class EavConroller extends \BaseController {
 
     protected $apiVersion;

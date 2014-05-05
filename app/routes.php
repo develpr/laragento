@@ -73,3 +73,4 @@ Route::resource('api/v1/configurations', 'Api\V1\CoreConfigController');
 Route::resource('api/v1/orders', 'Api\V1\OrderController');
 Route::resource('api/v1/orderPayments', 'Api\V1\OrderPaymentController');
 Route::resource('api/v1/orderItems', 'Api\V1\OrderItemController');
+Route::resource('api/v1/wineClubs', 'Api\V1\WineClubController');
