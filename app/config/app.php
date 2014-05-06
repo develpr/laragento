@@ -183,6 +183,8 @@ return array(
 
     'laragento' => array(
 
+        'storeUrl' => 'http://magentopos.infielddesign.com',
+
         'magento' => array(
             'api' => array(
                 'user' => '',

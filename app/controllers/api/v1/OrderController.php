@@ -56,7 +56,34 @@ class OrderController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $client = new Guzzle\Http\Client(Config::get('app.laragento.storeUrl'));
+
+        $quoteId = Input::get('quoteId');
+
+        $request = $client->post('api/rest/restnow/orders');
+        $data = json_encode(array(
+            'store_id' => 1,
+            'quote_id' => $quoteId,
+            'payment_method' => 'authorizenet',
+            'cc_number' => '4242424242424242',
+            'cc_type' => "VI",
+            'cc_expiration_month' => '12',
+            'cc_expiration_year' => '18',
+            'cc_cvv' => '923'
+        ));
+        $request->setBody($data, 'application/json');
+        $request->setHeader("Accept", "application/json");
+
+        /** @var Guzzle\Http\Message\Response $response */
+        $response = $request->send();
+
+        /** @var Guzzle\Http\Message\Header $location */
+        $location = $response->getHeader('location');
+
+        $orderId =  str_replace('/api/rest/restnow/orders/', '', $location);
+
+        return Redirect::to('/api/v1/orders/'.$orderId);
+
 	}
 
 	/**
