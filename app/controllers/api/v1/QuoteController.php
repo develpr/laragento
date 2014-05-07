@@ -93,7 +93,7 @@ class QuoteController extends \BaseController {
 
         $data = array(
             'store_id' => 1,
-            'quote_id' => Input::get('quote_id'),
+            'quote_id' => $id,
             'product_id' => Input::get('product_id'),
         );
 
