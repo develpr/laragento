@@ -73,3 +73,35 @@ Route::resource('api/v1/configurations', 'Api\V1\CoreConfigController');
 Route::resource('api/v1/orders', 'Api\V1\OrderController');
 Route::resource('api/v1/wineClubs', 'Api\V1\WineClubController');
 Route::resource('api/v1/quotes', 'Api\V1\QuoteController');
+
+
+Route::get('test', function(){
+
+    $client = new Guzzle\Http\Client(Config::get('app.laragento.storeUrl'));
+
+    $quoteId = 1780;
+
+    $request = $client->post('api/rest/restnow/orders');
+    $data = json_encode(array(
+        'store_id' => 1,
+        'quote_id' => $quoteId,
+        'payment_method' => 'authorizenet',
+        'cc_number' => '4242424242424242',
+        'cc_type' => "VI",
+        'cc_expiration_month' => '12',
+        'cc_expiration_year' => '18',
+        'cc_cvv' => '923'
+    ));
+    $request->setBody($data, 'application/json');
+    $request->setHeader("Accept", "application/json");
+
+    /** @var Guzzle\Http\Message\Response $response */
+    $response = $request->send();
+
+    /** @var Guzzle\Http\Message\Header $location */
+    $location = $response->getHeader('location');
+
+    $orderId =  str_replace('/api/rest/restnow/orders/', '', $location);
+
+    return Redirect::to('/api/v1/orders/'.$orderId);
+});

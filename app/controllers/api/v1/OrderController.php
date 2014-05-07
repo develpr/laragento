@@ -60,7 +60,7 @@ class OrderController extends \BaseController {
         // Create a client to work with the Twitter API
         $client = new Client(Config::get('app.laragento.storeUrl'));
 
-        $quoteId = Input::get('quoteId');
+        $quoteId = Input::get('quote_id');
 
         $request = $client->post('api/rest/restnow/orders');
         $data = json_encode(array(
