@@ -84,7 +84,10 @@ class OrderController extends \BaseController {
 
         $orderId =  str_replace('/api/rest/restnow/orders/', '', $location);
 
-        return Redirect::to('/api/v1/orders/'.$orderId);
+        $order = Laragento\Order::find($orderId);
+
+        //todo: should actually redirect to the quote, but we're not sending the CORS header then
+        return Response::json($order, 201);
 
     }
 
