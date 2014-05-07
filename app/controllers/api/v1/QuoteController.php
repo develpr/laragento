@@ -88,7 +88,26 @@ class QuoteController extends \BaseController {
      */
     public function update($id)
     {
-        //
+
+        $client = new Client(Config::get('app.laragento.storeUrl'));
+
+        $data = array(
+            'store_id' => 1,
+            'quote_id' => Input::get('quote_id'),
+            'product_id' => Input::get('product_id'),
+        );
+
+        if(Input::has('quantity'))
+            $data['qty'] = Input::get('quantity');
+
+        $request = $client->post('api/rest/restnow/quoteItems');
+        $data = json_encode($data);
+        $request->setBody($data, 'application/json');
+        $request->setHeader("Accept", "application/json");
+
+        $response = $request->send();
+
+
     }
 
 }
