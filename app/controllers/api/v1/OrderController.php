@@ -50,14 +50,15 @@ class OrderController extends \BaseController {
 		//
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-        $client = Client(Config::get('app.laragento.storeUrl'));
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        // Create a client to work with the Twitter API
+        $client = new Client(Config::get('app.laragento.storeUrl'));
 
         $quoteId = Input::get('quoteId');
 
@@ -85,7 +86,7 @@ class OrderController extends \BaseController {
 
         return Redirect::to('/api/v1/orders/'.$orderId);
 
-	}
+    }
 
 	/**
 	 * Display the specified resource.
