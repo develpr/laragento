@@ -6,6 +6,7 @@ use Laragento;
 use \Input;
 use \Config;
 use \Response;
+use Guzzle\Http\Client;
 
 class OrderController extends \BaseController {
 
@@ -56,7 +57,7 @@ class OrderController extends \BaseController {
 	 */
 	public function store()
 	{
-        $client = new Guzzle\Http\Client(Config::get('app.laragento.storeUrl'));
+        $client = Client(Config::get('app.laragento.storeUrl'));
 
         $quoteId = Input::get('quoteId');
 
