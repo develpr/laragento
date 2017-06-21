@@ -6,7 +6,7 @@ use \Response;
 use \Input;
 use Laragento;
 
-class CategoryController extends EavConroller {
+class CategoryController extends EavController {
 
     public function __construct(){
         $this->apiVersion = 'v1';
