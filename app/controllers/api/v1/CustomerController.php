@@ -13,7 +13,7 @@ use \Config;
 
 use \Symfony\Component\Translation\Exception\InvalidResourceException;
 
-class CustomerController extends EavConroller{
+class CustomerController extends EavController{
 
     public function __construct(){
         $this->apiVersion = 'v1';

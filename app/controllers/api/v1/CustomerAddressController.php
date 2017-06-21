@@ -13,7 +13,7 @@ use \Config;
 
 use \Symfony\Component\Translation\Exception\InvalidResourceException;
 
-class CustomerAddressController extends EavConroller{
+class CustomerAddressController extends EavController{
 
     public function __construct(){
 

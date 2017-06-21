@@ -12,7 +12,7 @@ use \URL;
 use \Config;
 use \Symfony\Component\Translation\Exception\InvalidResourceException;
 //todo: fix spelling error! Thanks @waltywalt
-class EavConroller extends \BaseController {
+class EavController extends \BaseController {
 
     protected $apiVersion;
     protected $attributeHelper = null;
